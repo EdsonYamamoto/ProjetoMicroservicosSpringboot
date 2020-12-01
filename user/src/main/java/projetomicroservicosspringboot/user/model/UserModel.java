@@ -22,6 +22,9 @@ public class UserModel implements AbstractEntity{
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private boolean active;
+
     @Override
     public Long getId() {
         return id;
