@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{page}/{size}",produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "show user list")
     public ResponseEntity<Iterable<UserModel>> list(@RequestParam("page") int pageIndex,
                                                     @RequestParam("size") int pageSize){
